@@ -1,7 +1,6 @@
 <template>
 <div>
-  <!-- 一及占位符 -->
-    <router-view></router-view>
+    登录
 </div>
 </template>
 
@@ -19,6 +18,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang='less'>
 
 </style>
