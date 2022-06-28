@@ -1,6 +1,7 @@
 <template>
   <div>
-    <van-nav-bar title="登录">
+    <!-- click-left是nav-bar里面的 -->
+    <van-nav-bar title="登录" @click-left="$router.back()">
       <!-- <van-icon name="cross" slot='left'/> -->
       <template v-slot:left>
         <van-icon name="cross" />
@@ -17,8 +18,9 @@
           { pattern: /^(?:(?:\+|00)86)?1\d{10}$/, message: '不符合手机的格式' },
         ]"
       >
-        <i class="toutiao toutiao-shouji" slot="left-icon"></i
-      ></van-field>
+        <!-- <i class="toutiao toutiao-shouji" slot="left-icon"> </i> -->
+        <ToutiaoIcon name="shouji" slot="left-icon"></ToutiaoIcon>
+      </van-field>
       <van-field
         v-model.trim="code"
         type="password"
@@ -28,7 +30,9 @@
           { required: true, message: '请填写验证码' },
           { pattern: /^\d{6}$/, message: '验证码长度必须是6位' },
         ]"
-        ><i class="toutiao toutiao-yanzhengma" slot="left-icon"></i>
+      >
+        <!-- <i class="toutiao toutiao-yanzhengma" slot="left-icon"></i> -->
+        <ToutiaoIcon name="yanzhengma" slot="left-icon"></ToutiaoIcon>
         <template #button>
           <van-count-down
             v-if="isCountDownShow"
@@ -60,7 +64,7 @@ export default {
   created () { },
   data () {
     return {
-      mobile: '18911111111', // 手机号
+      mobile: '18990832410', // 手机号
       code: '246810', // 短信验证码
       time: 5 * 1000,
       isCountDownShow: false
@@ -70,8 +74,9 @@ export default {
     async onSubmit (values) {
       try {
         const res = await login(values)
-        console.log(res)
+        // console.log(res)
         this.$store.commit('setUser', res.data.data)
+        this.$router.push({ name: 'my' })
       } catch (err) {
         console.log(err)
       }

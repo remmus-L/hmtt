@@ -6,7 +6,6 @@ const Video = () => import('@/views/Video')
 const Question = () => import('@/views/Question')
 const My = () => import('@/views/My')
 const Login = () => import('@/views/Login')
-
 Vue.use(VueRouter)
 
 const routes = [
@@ -18,7 +17,7 @@ const routes = [
       { path: 'home', component: Home },
       { path: 'video', component: Video },
       { path: 'question', component: Question },
-      { path: 'my', component: My }
+      { path: 'my', component: My, name: 'my' }
     ]
   },
   { path: '/login', component: Login }
