@@ -1,5 +1,5 @@
 import request from '@/utils/request'
-import store from '@/store'
+// import store from '@/store'
 // 返回值是个promise
 // mobile是传的参数
 export const getSmsCode = (mobile) => {
@@ -25,9 +25,6 @@ export const login = ({ mobile, code }) => {
 // 获取用户个人资料
 export const getUserInfo = () => {
   return request({
-    url: 'user',
-    headers: {
-      Authorization: 'Bearer ' + store.state.user.token
-    }
+    url: 'user'
   })
 }

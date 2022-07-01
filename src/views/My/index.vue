@@ -70,6 +70,7 @@
 </template>
 
 <script>
+// mapState 辅助函数帮助我们生成计算属性
 import { mapState } from 'vuex'
 import { getUserInfo } from '@/api/user'
 export default {

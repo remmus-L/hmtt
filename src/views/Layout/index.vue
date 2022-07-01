@@ -1,6 +1,10 @@
 <template>
   <div>
-    <router-view class="main" />
+    <!-- 让首页有缓存 当切换到别的模块去  在切回来 让他不变 -->
+    <keep-alive :include="['Home']">
+      <router-view class="main" />
+    </keep-alive>
+
     <van-tabbar route>
       <van-tabbar-item replace to="/home" icon="home-o"
         >首页
